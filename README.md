@@ -1,17 +1,17 @@
-## stress-ng-builder 
+## stress-ng-builder
 
-A docker container for building [`stress-ng`](https://github.com/ColinIanKing/stress-ng) binaries. 
+Tools for building [`stress-ng`](https://github.com/ColinIanKing/stress-ng) (v0.20.01) binaries.
 
-## Building 
+## Building
 
-Ubuntu builder:
+Ubuntu builder (Docker):
 ```
 cd ubuntu && make all
 ```
-This will build and start the Docker container and download the `stress-ng-linux` 
+This will build and start the Docker container and download the `stress-ng-linux`
 binary from `http://localhost:3080`
 
-Localhost builder (ensure you have gcc installed):
+Localhost builder (requires gcc):
 ```
 cd localhost && make all
 ```

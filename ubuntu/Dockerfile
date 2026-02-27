@@ -3,7 +3,7 @@ MAINTAINER Jerrico Gamis <jecklgamis@gmail.com>
 
 RUN apt-get update -y && apt-get install -y gcc make curl nginx
 
-ENV VERSION=0.15.01
+ENV VERSION=0.20.01
 RUN curl -sfLO https://github.com/ColinIanKing/stress-ng/archive/V${VERSION}.tar.gz
 RUN tar xvf V${VERSION}.tar.gz && cd stress-ng-${VERSION} && make && make install
 
