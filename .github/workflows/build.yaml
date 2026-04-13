@@ -1,0 +1,44 @@
+name: Build stress-ng
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-ubuntu:
+    name: Ubuntu (Docker) — dynamic binary
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image and extract binary
+        working-directory: ubuntu
+        run: make all
+
+      - name: Upload stress-ng-linux
+        uses: actions/upload-artifact@v4
+        with:
+          name: stress-ng-linux-dynamic
+          path: ubuntu/stress-ng-linux
+
+  build-localhost:
+    name: Localhost — static binary
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install gcc
+        run: sudo apt-get install -y gcc make
+
+      - name: Build static binary
+        working-directory: localhost
+        run: make all
+
+      - name: Upload stress-ng static
+        uses: actions/upload-artifact@v4
+        with:
+          name: stress-ng-static
+          path: localhost/stress-ng-0.20.01/stress-ng
