@@ -35,6 +35,6 @@ Requires gcc. Downloads stress-ng source and builds it statically (`STATIC=1`).
 
 ## Key Details
 
-- Both builders use stress-ng version 0.20.01. Version is set via `VERSION` variable in each Makefile/Dockerfile.
+- Both builders use stress-ng version 0.21.00. Version is set via `VERSION` variable in each Makefile/Dockerfile.
 - The Ubuntu builder produces a dynamically-linked binary; the localhost builder produces a static binary (`STATIC=1`).
 - The `default` target in both Makefiles just prints the Makefile contents (`cat ./Makefile`).
