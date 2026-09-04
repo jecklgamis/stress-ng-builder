@@ -12,5 +12,6 @@ cid=$(shell docker ps | grep stress-ng-builder-ubuntu | awk '{ print $$1 }')
 stop:
 	if [ ! -z "${cid}" ]; then docker stop ${cid}; fi
 download-binary:
-	@curl -sfLO http://localhost:3080/stress-ng && mv ./stress-ng ./stress-ng-linux && echo "Wrote ./stress-ng-linux"
+	@for i in $$(seq 1 30); do curl -sf -o ./stress-ng http://localhost:3080/stress-ng && break || sleep 1; done
+	@test -s ./stress-ng && mv ./stress-ng ./stress-ng-linux && echo "Wrote ./stress-ng-linux"
 all: image run-daemon download-binary stop
