@@ -1,6 +1,6 @@
 ## stress-ng-builder
 
-Tools for building [`stress-ng`](https://github.com/ColinIanKing/stress-ng) (v0.20.01) binaries.
+Tools for building [`stress-ng`](https://github.com/ColinIanKing/stress-ng) (v0.22.00) binaries.
 
 ## Building
 

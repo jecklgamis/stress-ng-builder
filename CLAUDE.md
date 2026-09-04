@@ -29,12 +29,12 @@ Requires gcc. Downloads stress-ng source and builds it statically (`STATIC=1`).
 
 ## Architecture
 
-- **`ubuntu/`** — Docker-based builder. The Dockerfile (Ubuntu 22.04) installs gcc/make/nginx, downloads and compiles stress-ng (version 0.15.01), copies the binary to nginx's web root, and serves it on port 3080.
-- **`localhost/`** — Direct local build. Downloads stress-ng source tarball (version 0.10.04) and compiles statically.
+- **`ubuntu/`** — Docker-based builder. The Dockerfile (Ubuntu 24.04) installs gcc/make/nginx, downloads and compiles stress-ng, copies the binary to nginx's web root, and serves it on port 3080.
+- **`localhost/`** — Direct local build. Downloads stress-ng source tarball and compiles statically.
 - Nginx config (`ubuntu/nginx.conf`, `ubuntu/nginx_default_server.conf`) serves files from `/var/www/html` on port 3080 with autoindex enabled.
 
 ## Key Details
 
-- Both builders use stress-ng version 0.21.00. Version is set via `VERSION` variable in each Makefile/Dockerfile.
+- Both builders use stress-ng version 0.22.00. Version is set via `VERSION` variable in each Makefile/Dockerfile.
 - The Ubuntu builder produces a dynamically-linked binary; the localhost builder produces a static binary (`STATIC=1`).
 - The `default` target in both Makefiles just prints the Makefile contents (`cat ./Makefile`).

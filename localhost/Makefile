@@ -1,7 +1,7 @@
 default:
 	cat ./Makefile
 
-VERSION:=0.21.00
+VERSION:=0.22.00
 all: download-source build
 build:
 	rm -rf stress-ng-${VERSION}

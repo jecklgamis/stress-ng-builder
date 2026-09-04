@@ -1,9 +1,9 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 MAINTAINER Jerrico Gamis <jecklgamis@gmail.com>
 
 RUN apt-get update -y && apt-get install -y gcc make curl nginx
 
-ENV VERSION=0.21.00
+ENV VERSION=0.22.00
 RUN curl -sfLO https://github.com/ColinIanKing/stress-ng/archive/V${VERSION}.tar.gz
 RUN tar xvf V${VERSION}.tar.gz && cd stress-ng-${VERSION} && make && make install
 
